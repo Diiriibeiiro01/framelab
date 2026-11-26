@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Estime o FPS do seu PC e compare preços de serviços em Brasília.">
+<title>FrameLab — FPS e orçamento para PC</title>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+<script src="interface.js" defer></script>
+<script src="guides.js" defer></script>
+</head>
+<body>
+<header><div class="shell top"><a class="logo" href="#inicio"><span class="mark" aria-hidden="true">◈</span> Frame<span>Lab</span></a><div class="preferences"><a class="about-link" href="index.html">Sobre o projeto</a><button type="button" id="theme-toggle">Tema claro</button><button id="login-open" type="button" aria-haspopup="dialog">Entrar</button><button id="login-out" type="button" hidden>Sair</button></div></div></header>
+<main class="shell" id="conteudo">
+<div class="tool-tabs" role="tablist" aria-label="Ferramentas do FrameLab">
+<button id="tab-inicio" role="tab" aria-controls="inicio" aria-selected="true" type="button">Início</button>
+<button id="tab-fps" role="tab" aria-controls="fps" aria-selected="false" tabindex="-1" type="button">Jogos e FPS</button>
+<button id="tab-apps" role="tab" aria-controls="apps" aria-selected="false" tabindex="-1" type="button">Aplicativos</button>
+<button id="tab-upgrade" role="tab" aria-controls="upgrade" aria-selected="false" tabindex="-1" type="button">Upgrades</button>
+<button id="tab-servicos" role="tab" aria-controls="servicos" aria-selected="false" tabindex="-1" type="button">Orçamento</button>
+<button id="tab-guias" role="tab" aria-controls="guias" aria-selected="false" tabindex="-1" type="button">Guias</button>
+<button id="tab-links" role="tab" aria-controls="links" aria-selected="false" tabindex="-1" type="button">Links úteis</button>
+<button id="tab-secreto" role="tab" aria-controls="secreto" aria-selected="false" tabindex="-1" type="button" hidden>Modo Secreto</button>
+</div>
+<section id="inicio" role="tabpanel" aria-labelledby="tab-inicio" tabindex="0">
+<section class="intro"><div><p class="tag">FERRAMENTAS PARA PC</p><h1>Quanto seu PC<br><em>consegue rodar?</em></h1><p>Simule seu desempenho em jogos, planeje tarefas em aplicativos e calcule quanto custa cuidar do seu PC.</p><div class="hero-actions"><a href="#fps">Simular FPS ↗</a><a href="#servicos">Montar orçamento</a></div></div><div class="signal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></section>
+<p id="login-status" role="status" hidden></p>
+<h2>Ferramentas do FrameLab</h2>
+<div class="program-cards home-tools">
+<article class="panel"><h3>Jogos e FPS</h3><p>Estime o desempenho do seu PC em diferentes resoluções.</p><a href="#fps">Abrir calculadora ↗</a></article>
+<article class="panel"><h3>Upgrades</h3><p>Compare o FPS antes e depois de trocar a CPU ou a GPU.</p><a href="#upgrade">Comparar peças ↗</a></article>
+<article class="panel"><h3>Aplicativos</h3><p>Encontre editores de vídeo, gravadores e ferramentas para o PC.</p><a href="#apps">Ver aplicativos ↗</a></article>
+<article class="panel"><h3>Orçamento</h3><p>Calcule o custo estimado de limpeza, montagem e outros serviços.</p><a href="#servicos">Montar orçamento ↗</a></article>
+</div></section>
+<section id="fps" role="tabpanel" aria-labelledby="tab-fps" tabindex="0" hidden>
+<div class="section-title"><h2 id="fps-title">Calculadora de FPS</h2><p>Escolha as peças, o jogo e os ajustes gráficos.</p></div>
+<div class="grid">
+<form id="fps-form" class="panel"><h3>Configuração do PC</h3><div class="fields">
+<label>Processador<select id="cpu"></select></label>
+<label>Placa de vídeo<select id="gpu"></select></label>
+<label>Memória RAM<select id="ram"><option>8 GB</option><option>16 GB</option><option selected>32 GB</option><option>64 GB</option></select></label>
+<label>Jogo<select id="game"></select></label>
+<label>Resolução<select id="resolution"><option>1080p</option><option>1440p</option><option>2160p</option></select></label>
+<label>Qualidade gráfica<select id="quality"><option>Baixa</option><option selected>Média</option><option>Alta</option><option>Ultra</option></select></label>
+</div><button type="submit">Estimar FPS <span aria-hidden="true">↗</span></button></form>
+<div class="panel result" aria-live="polite" id="fps-results"><p class="tag">DESEMPENHO ESTIMADO</p><div class="readout"><strong id="fps-range"></strong><span> FPS</span></div><p id="fps-context"></p><div class="meter" aria-hidden="true"><span id="fps-meter"></span></div><div class="scale" aria-hidden="true"><span>0</span><span>60</span><span>120</span><span>180</span><span>240+</span></div><div class="comparison"><h3>FPS por resolução</h3><div id="resolution-comparison"></div></div><p class="hint">Modelo aproximado para resolução nativa, com ray tracing e geração de quadros desligados. Mapas, atualizações e temperatura podem mudar o resultado.</p></div>
+</div></section>
+<section id="apps" role="tabpanel" aria-labelledby="tab-apps" tabindex="0" hidden>
+<div class="section-title"><h2>Aplicativos para seu PC</h2><p>Escolha pelo que você quer fazer.</p></div>
+<div class="program-cards">
+<article class="panel"><h3>Editar vídeo</h3><p>Corte, organize e exporte seus vídeos com editores gratuitos.</p><a href="https://shotcut.org/download/">Shotcut ↗</a> · <a href="https://kdenlive.org/download/">Kdenlive ↗</a></article>
+<article class="panel"><h3>Gravar gameplay</h3><p>Grave a tela ou faça transmissões ao vivo.</p><a href="https://obsproject.com/download">OBS Studio ↗</a></article>
+<article class="panel"><h3>Ver as peças do PC</h3><p>Confira seu processador, placa-mãe e memória RAM.</p><a href="https://www.cpuid.com/softwares/cpu-z.html">CPU-Z ↗</a></article>
+</div>
+<details class="app-benchmark"><summary>Comparar desempenho em aplicativos</summary>
+<div class="grid">
+<form class="panel" id="app-form">
+<h3>Tempos medidos</h3>
+<div class="fields">
+<label>Aplicativo<select id="application">
+<option value="Renderizar a mesma cena">Blender</option>
+<option value="Exportar o mesmo vídeo com o mesmo preset">DaVinci Resolve</option>
+<option value="Exportar o mesmo vídeo com o mesmo preset">Adobe Premiere Pro</option>
+<option value="Aplicar a mesma ação na mesma imagem">Adobe Photoshop</option>
+<option value="Compilar o mesmo projeto">Visual Studio Code</option>
+</select></label>
+<label>Tempo atual (em segundos)<input id="app-before" type="number" min="0.01" step="any" required placeholder="120"></label>
+<label>Tempo na outra configuração (em segundos)<input id="app-after" type="number" min="0.01" step="any" required placeholder="90"></label>
+</div>
+<button type="submit">Comparar tempos</button>
+</form>
+<div class="panel result" aria-live="polite">
+<p class="tag">COMPARAÇÃO</p>
+<h3 id="app-task"></h3>
+<p id="app-result">Preencha os dois tempos para calcular a diferença.</p>
+<p class="hint">Use o mesmo arquivo e as mesmas configurações do aplicativo nas duas medições.</p>
+</div></div></details></section>
+<section id="upgrade" role="tabpanel" aria-labelledby="tab-upgrade" tabindex="0" hidden>
+<div class="section-title"><h2 id="upgrade-title">Comparador de upgrades</h2><p>Teste uma troca de peça usando o mesmo jogo e os ajustes da calculadora.</p></div>
+<div class="grid">
+<div class="panel"><h3>Configuração para comparar</h3><div class="fields">
+<label>Novo processador<select id="upgrade-cpu"><option value="">Manter o atual</option></select></label>
+<label>Nova placa de vídeo<select id="upgrade-gpu"><option value="">Manter a atual</option></select></label>
+<label>Taxa do monitor<select id="refresh"><option>60 Hz</option><option>120 Hz</option><option>144 Hz</option><option selected>180 Hz</option><option>240 Hz</option><option>360 Hz</option></select></label>
+</div></div>
+<div class="panel result" aria-live="polite">
+<p class="tag">ANTES E DEPOIS</p>
+<dl class="upgrade-stats"><div><dt>Configuração atual</dt><dd id="before-fps"></dd></div><div><dt>Configuração simulada</dt><dd id="after-fps"></dd></div><div><dt>Diferença</dt><dd id="fps-delta"></dd></div></dl>
+<p id="monitor-note"></p><p class="hint" id="upgrade-context"></p>
+<p class="hint upgrade-hint">A comparação estima FPS. Confira a compatibilidade das peças antes de comprar.</p>
+</div></div></section>
+<section id="servicos" role="tabpanel" aria-labelledby="tab-servicos" tabindex="0" hidden>
+<div class="section-title"><h2 id="services-title">Orçamento de serviços</h2><p>Selecione os serviços para somar os valores de referência de Brasília, DF.</p></div>
+<div class="grid"><div class="panel"><h3>Serviços para desktop</h3><div id="services"></div></div><div class="panel result quote"><p class="tag">TOTAL DE REFERÊNCIA</p><div id="quote-total" aria-live="polite">R$ 0</div><p id="quote-count">Selecione um serviço para começar.</p><ul id="quote-items"></ul><button type="button" id="reset-quote" hidden>Limpar seleção</button><p class="hint">Valores consultados em 18/11/2026. Peças, licenças e deslocamento podem ser cobrados à parte. O valor final depende do prestador.</p><p class="sources"><a href="https://loqal.com.br/servicos/computador-desktop/df/brasilia">Loqal Brasília</a><a href="https://www.ciainfor.com.br/">Cia da Informática</a></p></div></div>
+</section>
+<section id="guias" role="tabpanel" aria-labelledby="tab-guias" tabindex="0" hidden>
+<div class="section-title"><h2>Guia do FrameLab</h2><p>Entenda o que cada ferramenta mostra e como usar os resultados.</p></div>
+<div class="panel" aria-label="Carrossel de guias">
+<div aria-live="polite">
+<article class="guide-slide"><img src="guia-fps.webp" alt="Monitor com jogo de corrida em uma mesa com PC gamer"><div><h3>FPS e taxa do monitor</h3><p>FPS é o número de quadros que o PC gera por segundo. Hz é a frequência com que o monitor atualiza a imagem. Compare resoluções usando o mesmo jogo e preset. A faixa exibida é uma estimativa.</p></div></article>
+<article class="guide-slide" hidden><img src="guia-upgrade.webp" alt="Placa de vídeo e processador em uma bancada"><div><h3>Upgrades e testes de aplicativos</h3><p>Simule uma troca de CPU ou GPU mantendo o mesmo jogo e preset. Para comparar aplicativos, execute a mesma tarefa nas duas máquinas, com o mesmo arquivo e os mesmos ajustes. Na aba Aplicativos, informe os dois tempos medidos.</p></div></article>
+<article class="guide-slide" hidden><img src="guia-servicos.webp" alt="Técnico limpando um gabinete aberto com pincel"><div><h3>Orçamento de serviços</h3><p>Marque os serviços que você precisa para ver o total estimado. Os valores de Brasília têm data e fonte na aba Orçamento. Confirme com o técnico se peças, licenças e deslocamento entram no preço.</p></div></article>
+</div>
+<div class="carousel-controls"><button type="button" id="guide-prev">← Anterior</button><span id="guide-counter" aria-live="polite">1 de 3</span><button type="button" id="guide-next">Próximo →</button></div>
+</div></section>
+<section id="links" role="tabpanel" aria-labelledby="tab-links" tabindex="0" hidden>
+<div class="section-title"><h2>Links úteis</h2><p>Encontre programas nas páginas oficiais e guarde seus próprios atalhos.</p></div>
+<div class="grid">
+<div class="panel"><h3>Downloads oficiais</h3><ul class="program-links">
+<li><a href="https://www.cpuid.com/softwares/cpu-z.html">CPU-Z ↗</a><span>Identificar processador, placa-mãe e memória RAM</span></li>
+<li><a href="https://shotcut.org/download/">Shotcut ↗</a><span>Editor de vídeo gratuito</span></li>
+<li><a href="https://kdenlive.org/download/">Kdenlive ↗</a><span>Editor de vídeo gratuito</span></li>
+<li><a href="https://obsproject.com/download">OBS Studio ↗</a><span>Gravação de tela e transmissões</span></li>
+</ul></div>
+<div class="panel"><h3>Meus links</h3><p class="hint">Os links que você adicionar ficam neste navegador.</p>
+<form id="link-form" class="link-form"><label>Nome<input name="title" maxlength="80" required></label><label>Endereço HTTPS<input name="url" type="url" placeholder="https://exemplo.com" maxlength="2048" required></label><button type="submit">Adicionar link</button></form>
+<p id="link-status" role="status" class="hint"></p><ul id="saved-links" class="program-links"></ul>
+</div></div></section>
+<section id="secreto" role="tabpanel" aria-labelledby="tab-secreto" tabindex="0" hidden>
+<div class="section-title"><p class="tag">CÓDIGO ATIVADO</p><h2>Modo Secreto</h2><p>Jogos e ferramentas grátis com download nos sites oficiais.</p></div>
+<div class="program-cards">
+<article class="panel"><h3>SuperTuxKart</h3><p>Corrida de kart de código aberto.</p><a href="https://supertuxkart.net/Download">Download oficial ↗</a></article>
+<article class="panel"><h3>0 A.D.</h3><p>Estratégia em tempo real inspirada na Antiguidade.</p><a href="https://play0ad.com/download/">Download oficial ↗</a></article>
+<article class="panel"><h3>Kdenlive</h3><p>Editor de vídeo gratuito e de código aberto.</p><a href="https://kdenlive.org/download/">Download oficial ↗</a></article>
+</div></section>
+<footer class="site-footer">
+<p>© 2026 Mateus Vinicius Ribeiro Leite <span>·</span> <button class="secret-entry" id="secret-trigger" type="button" aria-label="FrameLab: inserir código secreto" aria-haspopup="dialog">FrameLab</button></p>
+<button type="button" id="privacy-toggle" aria-haspopup="dialog" aria-controls="privacy-panel">Privacidade e cookies</button>
+</footer>
+</main>
+<button type="button" id="a11y-toggle" aria-haspopup="dialog" aria-controls="a11y-panel" aria-expanded="false">Acessibilidade</button>
+<dialog id="a11y-panel" class="panel" aria-labelledby="a11y-title">
+<div class="a11y-heading"><h2 id="a11y-title">Acessibilidade</h2><form method="dialog"><button aria-label="Fechar acessibilidade" autofocus>×</button></form></div>
+<div class="a11y-options">
+<label><input type="checkbox" id="larger-text"> Texto maior</label>
+<label><input type="checkbox" id="high-contrast"> Alto contraste</label>
+<label><input type="checkbox" id="reduce-motion"> Reduzir movimento</label>
+<label><input type="checkbox" id="more-spacing"> Espaçar texto</label>
+<label><input type="checkbox" id="underline-links"> Sublinhar links</label>
+<label><input type="checkbox" id="mark-focus"> Destacar foco</label>
+<label>Cor da página<select id="page-color"><option value="normal">Padrão</option><option value="low">Saturação baixa</option><option value="mono">Monocromática</option></select></label>
+</div>
+<div class="a11y-actions"><button type="button" id="read-tab">Ouvir aba atual</button><button type="button" id="a11y-reset">Restaurar ajustes</button></div>
+<p id="a11y-status" class="hint" role="status"></p>
+</dialog>
+<dialog id="privacy-panel" class="panel" aria-labelledby="privacy-title">
+<div class="a11y-heading"><h2 id="privacy-title">Privacidade e cookies</h2><form method="dialog"><button aria-label="Fechar aviso de privacidade" autofocus>×</button></form></div>
+<p>O código do FrameLab usa o armazenamento local do navegador para guardar o tema, as opções de acessibilidade e os links que você adicionar. Esses dados ficam neste navegador e o código do FrameLab não os envia a um servidor.</p>
+<p>O código do FrameLab não instala cookies de publicidade nem usa ferramentas de análise de visitas. A plataforma de hospedagem pode usar cookies próprios para funções como login e segurança. Os sites abertos em Links úteis seguem suas próprias políticas. O login demonstrativo valida os campos no navegador. O e-mail e a senha digitados não são enviados nem armazenados.</p>
+<details>
+<summary>Apagar dados locais do FrameLab</summary>
+<p>Isso remove os links adicionados e restaura as preferências de tema e acessibilidade neste navegador.</p>
+<button type="button" id="privacy-clear">Confirmar exclusão dos dados locais</button>
+</details>
+<p class="hint" id="privacy-status" role="status"></p>
+</dialog>
+<script src="privacy.js" defer></script>
+<dialog id="secret-dialog" class="panel" aria-labelledby="secret-title">
+<div class="a11y-heading"><h2 id="secret-title">Terminal FrameLab</h2><form method="dialog"><button aria-label="Fechar terminal">×</button></form></div>
+<form id="secret-form" class="link-form">
+<label>Código<input id="secret-code" type="text" maxlength="16" autocomplete="off" required autofocus></label>
+<button type="submit">Ativar</button>
+<p role="status" id="secret-status"></p>
+</form></dialog>
+<dialog id="terminal-intro" class="panel" aria-labelledby="terminal-intro-title">
+<div class="terminal-screen">
+<h2 id="terminal-intro-title">Modo Secreto</h2>
+<ol class="terminal-log" aria-hidden="true">
+<li>&gt; Comando CRACK recebido</li>
+<li>&gt; Interrompendo a interface do FrameLab...</li>
+<li>&gt; Redirecionando para o terminal...</li>
+<li>&gt; Carregando arquivos ocultos...</li>
+<li><strong>&gt; ACESSO LIBERADO</strong></li>
+</ol>
+<div class="terminal-progress" aria-hidden="true"></div>
+<form method="dialog"><button type="submit" autofocus>Pular animação</button></form>
+</div>
+</dialog>
+<script src="secret.js" defer></script>
+<dialog id="login-dialog" class="panel" aria-labelledby="login-title">
+<div class="a11y-heading"><h2 id="login-title">Entrar no FrameLab</h2><form method="dialog"><button aria-label="Fechar login">×</button></form></div>
+<p class="hint">Login demonstrativo. Use um e-mail de exemplo e uma senha fictícia com pelo menos 6 caracteres.</p>
+<form id="login-form" class="link-form">
+<label>E-mail<input id="login-email" type="email" placeholder="aluno@exemplo.com" autocomplete="off" required autofocus></label>
+<label>Senha<input id="login-password" type="password" minlength="6" autocomplete="off" required></label>
+<button id="login-visibility" type="button" aria-pressed="false">Mostrar senha</button>
+<button type="submit">Entrar na demonstração</button>
+</form></dialog>
+<script src="login.js" defer></script>
+</body></html>

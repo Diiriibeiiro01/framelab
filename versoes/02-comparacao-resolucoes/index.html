@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Estime o FPS do seu PC e compare preços de serviços em Brasília.">
+<title>FrameLab — FPS e orçamento para PC</title>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<header><div class="shell top"><a class="logo" href="#"><span class="mark" aria-hidden="true">◈</span> Frame<span>Lab</span></a><nav aria-label="Ferramentas"><a href="#fps">Calculadora FPS</a><a href="#servicos">Serviços</a></nav></div></header>
+<main class="shell">
+<section class="intro"><div><p class="tag">FERRAMENTAS PARA PC</p><h1>Quanto seu PC<br><em>consegue rodar?</em></h1><p>Simule seu desempenho em jogos e calcule quanto custa cuidar do seu PC.</p><div class="hero-actions"><a href="#fps">Simular FPS ↗</a><a href="#servicos">Montar orçamento</a></div></div><div class="signal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></section>
+<section id="fps" aria-labelledby="fps-title">
+<div class="section-title"><h2 id="fps-title">Calculadora de FPS</h2><p>Escolha as peças, o jogo e os ajustes gráficos.</p></div>
+<div class="grid">
+<form id="fps-form" class="panel"><h3>Configuração do PC</h3><div class="fields">
+<label>Processador<select id="cpu"></select></label>
+<label>Placa de vídeo<select id="gpu"></select></label>
+<label>Memória RAM<select id="ram"><option>8 GB</option><option>16 GB</option><option selected>32 GB</option><option>64 GB</option></select></label>
+<label>Jogo<select id="game"></select></label>
+<label>Resolução<select id="resolution"><option>1080p</option><option>1440p</option><option>2160p</option></select></label>
+<label>Qualidade gráfica<select id="quality"><option>Baixa</option><option selected>Média</option><option>Alta</option><option>Ultra</option></select></label>
+</div><button type="submit">Estimar FPS <span aria-hidden="true">↗</span></button></form>
+<div class="panel result" aria-live="polite" id="fps-results"><p class="tag">DESEMPENHO ESTIMADO</p><div class="readout"><strong id="fps-range"></strong><span> FPS</span></div><p id="fps-context"></p><div class="meter" aria-hidden="true"><span id="fps-meter"></span></div><div class="scale" aria-hidden="true"><span>0</span><span>60</span><span>120</span><span>180</span><span>240+</span></div><div class="comparison"><h3>FPS por resolução</h3><div id="resolution-comparison"></div></div><p class="hint">Modelo aproximado para resolução nativa, com ray tracing e geração de quadros desligados. Mapas, atualizações e temperatura podem mudar o resultado.</p></div>
+</div></section>
+<section id="servicos" aria-labelledby="services-title">
+<div class="section-title"><h2 id="services-title">Orçamento de serviços</h2><p>Selecione os serviços para somar os valores de referência de Brasília, DF.</p></div>
+<div class="grid"><div class="panel"><h3>Serviços para desktop</h3><div id="services"></div></div><div class="panel result quote"><p class="tag">TOTAL DE REFERÊNCIA</p><div id="quote-total" aria-live="polite">R$ 0</div><p id="quote-count">Selecione um serviço para começar.</p><ul id="quote-items"></ul><button type="button" id="reset-quote" hidden>Limpar seleção</button><p class="hint">Valores consultados em 18/11/2026. Peças, licenças e deslocamento podem ser cobrados à parte. O valor final depende do prestador.</p><p class="sources"><a href="https://loqal.com.br/servicos/computador-desktop/df/brasilia">Loqal Brasília</a><a href="https://www.ciainfor.com.br/">Cia da Informática</a></p></div></div>
+</section>
+<footer>FrameLab <span>·</span> FPS e orçamento para PC</footer>
+</main>
+</body></html>
