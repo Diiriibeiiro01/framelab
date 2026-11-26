@@ -26,6 +26,7 @@ Para publicar no GitHub Pages, coloque o conteúdo desta pasta na raiz do reposi
 | `app.js` | Estimativa de FPS, comparação de upgrades e soma do orçamento |
 | `interface.js` | Navegação, preferências, acessibilidade e comparação de tempos em aplicativos |
 | `guides.js` | Carrossel e links pessoais |
+| `contact-search.js` | Pesquisa de aplicativos e prévia de mensagem para baixar |
 | `login.js` | Formulário de demonstração, visibilidade da senha e estado temporário de entrada |
 | `privacy.js` | Aviso de privacidade e exclusão de preferências e links locais |
 | `secret.js` | Sequência de teclas e animação do Modo Secreto |
@@ -51,7 +52,7 @@ Cada pasta contém uma cópia executável da versão correspondente. No site pub
 | 11 | [Animacao terminal](versoes/11-animacao-terminal/index.html) | Animação de entrada do terminal |
 | 12 | [Terminal tela inteira](versoes/12-terminal-tela-inteira/index.html) | Entrada em tela inteira com o código CRACK |
 | 13 | [Início e login](versoes/13-home-e-login/index.html) | Aba Início e login demonstrativo |
-| Entrega | [Versão atual](index.html) | Página de apresentação antes da área de ferramentas |
+| Entrega | [Versão atual](index.html) | Página de apresentação, pesquisa de aplicativos e formulário demonstrativo de contato |
 
 ## Uso de IA
 

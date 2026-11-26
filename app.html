@@ -9,6 +9,7 @@
 <script src="app.js" defer></script>
 <script src="interface.js" defer></script>
 <script src="guides.js" defer></script>
+<script src="contact-search.js" defer></script>
 </head>
 <body>
 <header><div class="shell top"><a class="logo" href="#inicio"><span class="mark" aria-hidden="true">◈</span> Frame<span>Lab</span></a><div class="preferences"><a class="about-link" href="index.html">Sobre o projeto</a><button type="button" id="theme-toggle">Tema claro</button><button id="login-open" type="button" aria-haspopup="dialog">Entrar</button><button id="login-out" type="button" hidden>Sair</button></div></div></header>
@@ -21,6 +22,7 @@
 <button id="tab-servicos" role="tab" aria-controls="servicos" aria-selected="false" tabindex="-1" type="button">Orçamento</button>
 <button id="tab-guias" role="tab" aria-controls="guias" aria-selected="false" tabindex="-1" type="button">Guias</button>
 <button id="tab-links" role="tab" aria-controls="links" aria-selected="false" tabindex="-1" type="button">Links úteis</button>
+<button id="tab-contato" role="tab" aria-controls="contato" aria-selected="false" tabindex="-1" type="button">Contato</button>
 <button id="tab-secreto" role="tab" aria-controls="secreto" aria-selected="false" tabindex="-1" type="button" hidden>Modo Secreto</button>
 </div>
 <section id="inicio" role="tabpanel" aria-labelledby="tab-inicio" tabindex="0">
@@ -48,7 +50,11 @@
 </div></section>
 <section id="apps" role="tabpanel" aria-labelledby="tab-apps" tabindex="0" hidden>
 <div class="section-title"><h2>Aplicativos para seu PC</h2><p>Escolha pelo que você quer fazer.</p></div>
-<div class="program-cards">
+<form id="app-search" class="link-form panel">
+<label>Pesquisar aplicativos<input id="app-query" type="search" placeholder="Ex.: edição de vídeo, OBS ou CPU-Z"></label>
+<p id="app-search-count" role="status" class="hint"></p>
+</form>
+<div class="program-cards" id="app-catalog">
 <article class="panel"><h3>Editar vídeo</h3><p>Corte, organize e exporte seus vídeos com editores gratuitos.</p><a href="https://shotcut.org/download/">Shotcut ↗</a> · <a href="https://kdenlive.org/download/">Kdenlive ↗</a></article>
 <article class="panel"><h3>Gravar gameplay</h3><p>Grave a tela ou faça transmissões ao vivo.</p><a href="https://obsproject.com/download">OBS Studio ↗</a></article>
 <article class="panel"><h3>Ver as peças do PC</h3><p>Confira seu processador, placa-mãe e memória RAM.</p><a href="https://www.cpuid.com/softwares/cpu-z.html">CPU-Z ↗</a></article>
@@ -117,6 +123,24 @@
 <form id="link-form" class="link-form"><label>Nome<input name="title" maxlength="80" required></label><label>Endereço HTTPS<input name="url" type="url" placeholder="https://exemplo.com" maxlength="2048" required></label><button type="submit">Adicionar link</button></form>
 <p id="link-status" role="status" class="hint"></p><ul id="saved-links" class="program-links"></ul>
 </div></div></section>
+<section id="contato" role="tabpanel" aria-labelledby="tab-contato" tabindex="0" hidden>
+<div class="section-title"><h2>Contato</h2><p>Prepare uma mensagem sobre o FrameLab.</p></div>
+<div class="grid">
+<form id="contact-form" class="panel link-form">
+<label>Nome<input name="name" autocomplete="name" maxlength="80" required></label>
+<label>E-mail<input name="email" type="email" autocomplete="email" maxlength="254" required></label>
+<label>Assunto<input name="subject" maxlength="100" required></label>
+<label>Mensagem<textarea name="message" rows="5" maxlength="2000" required></textarea></label>
+<button type="submit">Preparar mensagem</button>
+</form>
+<div class="panel">
+<h3>Prévia da mensagem</h3>
+<p class="hint">O formulário é demonstrativo. A mensagem pode ser baixada como texto e não é enviada pelo site.</p>
+<p id="contact-status" role="status"></p>
+<pre id="contact-preview" hidden></pre>
+<button id="contact-download" type="button" hidden>Baixar mensagem</button>
+</div>
+</div></section>
 <section id="secreto" role="tabpanel" aria-labelledby="tab-secreto" tabindex="0" hidden>
 <div class="section-title"><p class="tag">CÓDIGO ATIVADO</p><h2>Modo Secreto</h2><p>Jogos e ferramentas grátis com download nos sites oficiais.</p></div>
 <div class="program-cards">

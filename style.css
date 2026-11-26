@@ -183,3 +183,9 @@ footer{padding-bottom:76px}
 .presentation-note{margin:16px 0 0}
 .about-link{align-self:center;padding:6px 8px;color:var(--text)}
 @media(max-width:720px){.presentation-hero{grid-template-columns:1fr}.presentation-hero img{aspect-ratio:16/9}}
+
+#app-search{margin-bottom:16px}
+#app-search label{margin-top:0}
+#app-search-count{margin-top:8px}
+#contact-form textarea{display:block;width:100%;margin-top:4px;padding:9px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font:inherit;resize:vertical}
+#contact-preview{white-space:pre-wrap;overflow-wrap:anywhere;border-top:1px solid var(--border);padding-top:12px}
